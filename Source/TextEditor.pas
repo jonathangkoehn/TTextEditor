@@ -4319,7 +4319,8 @@ begin
 
   if FWordWrap.Active then
   begin
-    LWordWrapLineLength := FWordWrapLine.ViewLength[LViewPosition.Row];
+   if Length(FWordWrapLine.ViewLength) > 1 then
+     LWordWrapLineLength := FWordWrapLine.ViewLength[LViewPosition.Row];
 
     if LWordWrapLineLength <> 0 then
       LViewPosition.Column := EnsureRange(LViewPosition.Column, 1, LWordWrapLineLength + 1);
